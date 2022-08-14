@@ -75,7 +75,7 @@ public class XPath extends Spider {
                             String pic = vodNodes.get(i).selOne(rule.getHomeVodImg()).asString().trim();
                             pic = rule.getHomeVodImgR(pic);
                             pic = Misc.fixUrl(webUrl, pic);
-                            String rate = vodNodes.get(i).selOne(rule.getHomeVodImg()).asString().replace("\/span[2]\/text()", "\/span[3]\/text()").trim();
+                            String rate = vodNodes.get(i).selOne(rule.getHomeVodImg()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
                             String mark = "";
                             if (!rule.getHomeVodMark().isEmpty()) {
                                 try {
