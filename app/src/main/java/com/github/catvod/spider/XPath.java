@@ -90,7 +90,7 @@ public class XPath extends Spider {
                             v.put("vod_name", name);
                             v.put("vod_pic", pic);
                             v.put("vod_remarks", mark);
-                            v.put("vod_year", rate);
+                            v.put("vod_year", mark);
                             videos.put(v);
                         }
                         result.put("list", videos);
