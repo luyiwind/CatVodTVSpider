@@ -90,7 +90,7 @@ public class XPath extends Spider {
                             v.put("vod_name", name);
                             v.put("vod_pic", pic);
                             v.put("vod_remarks", mark);
-                            v.put("vod_lang", mark);
+                            v.put("vod_rate", mark);
                             videos.put(v);
                         }
                         result.put("list", videos);
@@ -165,7 +165,7 @@ public class XPath extends Spider {
                 v.put("vod_name", name);
                 v.put("vod_pic", pic);
                 v.put("vod_remarks", mark);
-                v.put("vod_year", mark);
+                v.put("vod_rate", mark);
                 videos.put(v);
             }
             JSONObject result = new JSONObject();
@@ -271,6 +271,7 @@ public class XPath extends Spider {
             vod.put("vod_actor", actor);
             vod.put("vod_director", director);
             vod.put("vod_content", desc);
+            vod.put("vod_rate", remark);
 
             ArrayList<String> playFrom = new ArrayList<>();
 
