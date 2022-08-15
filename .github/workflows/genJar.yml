@@ -30,4 +30,4 @@ jobs:
         add: "['./jar/custom_spider_xp.jar', './jar/custom_spider_xp.jar.md5']"
         
     - name: Update to vps
-      run:  pscp -pw ${{ secrets.KEY_PASSWORD }} './jar/custom_spider_xp.jar' syncbot@158.101.69.19:/home/syncbot/apk
+      run:  pscp -pw ${{ secrets.KEY_PASSWORD }} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null './jar/custom_spider_xp.jar' syncbot@158.101.69.19:/home/syncbot/apk
