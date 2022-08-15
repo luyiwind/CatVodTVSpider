@@ -261,7 +261,7 @@ public class XPath extends Spider {
                     SpiderDebug.log(e);
                 }
             }
-            String rate = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
+            String rate = vodNode.selOne(rule.getHomeVodMark()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
 
             JSONObject vod = new JSONObject();
             vod.put("vod_id", ids.get(0));
