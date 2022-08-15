@@ -75,12 +75,13 @@ public class XPath extends Spider {
                             String pic = vodNodes.get(i).selOne(rule.getHomeVodImg()).asString().trim();
                             pic = rule.getHomeVodImgR(pic);
                             pic = Misc.fixUrl(webUrl, pic);
-                            String rate = vodNodes.get(i).selOne(rule.getHomeVodImg()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
+                            String rate = "";
                             String mark = "";
                             if (!rule.getHomeVodMark().isEmpty()) {
                                 try {
                                     mark = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().trim();
                                     mark = rule.getHomeVodMarkR(mark);
+                                    rate = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
                                 } catch (Exception e) {
                                     SpiderDebug.log(e);
                                 }
@@ -90,7 +91,7 @@ public class XPath extends Spider {
                             v.put("vod_name", name);
                             v.put("vod_pic", pic);
                             v.put("vod_remarks", mark);
-                            v.put("vod_rate", mark);
+                            v.put("vod_rate", rate);
                             videos.put(v);
                         }
                         result.put("list", videos);
@@ -152,6 +153,7 @@ public class XPath extends Spider {
                 pic = rule.getCateVodImgR(pic);
                 pic = Misc.fixUrl(webUrl, pic);
                 String mark = "";
+                String rate = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
                 if (!rule.getCateVodMark().isEmpty()) {
                     try {
                         mark = vodNodes.get(i).selOne(rule.getCateVodMark()).asString().trim();
@@ -165,7 +167,7 @@ public class XPath extends Spider {
                 v.put("vod_name", name);
                 v.put("vod_pic", pic);
                 v.put("vod_remarks", mark);
-                v.put("vod_rate", mark);
+                v.put("vod_rate", rate);
                 videos.put(v);
             }
             JSONObject result = new JSONObject();
@@ -259,6 +261,7 @@ public class XPath extends Spider {
                     SpiderDebug.log(e);
                 }
             }
+            String rate = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().replace("/span[2]/text()", "/span[3]/text()").trim();
 
             JSONObject vod = new JSONObject();
             vod.put("vod_id", ids.get(0));
@@ -271,7 +274,7 @@ public class XPath extends Spider {
             vod.put("vod_actor", actor);
             vod.put("vod_director", director);
             vod.put("vod_content", desc);
-            vod.put("vod_rate", remark);
+            vod.put("vod_rate", rate);
 
             ArrayList<String> playFrom = new ArrayList<>();
 
