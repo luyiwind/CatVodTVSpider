@@ -17,7 +17,8 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
-        
+    - name: set up PUTTY
+      run: choco install putty
     - name: Build with Gradle
       run: ./buildAndGenJar.bat ec
         
