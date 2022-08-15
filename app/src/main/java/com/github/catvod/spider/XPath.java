@@ -81,7 +81,7 @@ public class XPath extends Spider {
                                 try {
                                     mark = vodNodes.get(i).selOne(rule.getHomeVodMark()).asString().trim();
                                     mark = rule.getHomeVodMarkR(mark);
-                                    rate = vodNodes.get(i).selOne("/span[3]/text()".trim());
+                                    rate = vodNodes.get(i).selOne("/span[3]/text()").asString().trim();
                                 } catch (Exception e) {
                                     SpiderDebug.log(e);
                                 }
