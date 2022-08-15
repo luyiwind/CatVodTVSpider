@@ -85,6 +85,7 @@ public class XPathRule {
      * 正则对取到的数据进行二次处理
      */
     private Pattern homeVodMarkR;
+    private String homeVodRate;
     /**
      * 分类页地址
      */
@@ -351,6 +352,7 @@ public class XPathRule {
             rule.homeVodImgR = getPattern(jsonObj, "homeVodImgR");
             rule.homeVodMark = jsonObj.optString("homeVodMark").trim();
             rule.homeVodMarkR = getPattern(jsonObj, "homeVodMarkR");
+            rule.homeVodRate = jsonObj.optString("homeVodRate").trim();
             rule.cateUrl = jsonObj.optString("cateUrl").trim();
             rule.cateVodNode = jsonObj.optString("cateVodNode").trim();
             rule.cateVodName = jsonObj.optString("cateVodName").trim();
@@ -479,6 +481,10 @@ public class XPathRule {
 
     public String getHomeVodMarkR(String src) {
         return doReplaceRegex(homeVodMarkR, src);
+    }
+    
+    public String getHomeVodRate() {
+        return homeVodRate;
     }
 
     public String getCateUrl() {
